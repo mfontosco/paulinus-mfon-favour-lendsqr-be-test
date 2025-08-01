@@ -13,7 +13,7 @@ export async function up(knex: Knex): Promise<void> {
     table.decimal('credit', 18, 2).defaultTo(0.00);
     table.decimal('debit', 18, 2).defaultTo(0.00);
 
-    table.text('metadata');
+    table.json('metadata');
     table.string('currency', 255).notNullable();
 
     table.datetime('created_at').defaultTo(knex.fn.now());

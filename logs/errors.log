@@ -9,3 +9,10 @@
 2025-08-01 14:26:15 [[31merror[39m]: Error creating user: Error: insert into `wallets` (`balance`, `currency`, `id`, `user_id`) values (0, 'NGN', '9225157c-97c9-48b8-938c-780c3a02816b', '2e27a3ca-3d85-4ac1-b86e-ebe8dc1fb6cf') - Data truncated for column 'id' at row 1
 2025-08-01 14:33:42 [[31merror[39m]: Error creating user: Transaction query already complete, run with DEBUG=knex:tx for more info
 2025-08-01 14:35:16 [[31merror[39m]: Error creating user: User already exists
+2025-08-01 16:13:32 [[31merror[39m]: Error funding wallet
+2025-08-01 16:13:32 [[31merror[39m]: Fund wallet failed
+2025-08-01 16:13:32 [[31merror[39m]: Error: Wallet not found
+    at Function.<anonymous> (C:\Users\user\Documents\lendsqr\src\services\wallet.service.ts:14:26)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\user\Documents\lendsqr\src\services\wallet.service.ts:6:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)

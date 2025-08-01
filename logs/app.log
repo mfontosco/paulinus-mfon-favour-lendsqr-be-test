@@ -24,3 +24,14 @@
 2025-08-01 14:35:16 [[33mwarn[39m]: User already exists with email: john2343@example.com
 2025-08-01 14:35:16 [[31merror[39m]: Error creating user: User already exists
 2025-08-01 14:35:22 [[32minfo[39m]: User and wallet created for john234y3@example.com
+2025-08-01 16:13:32 [[32minfo[39m]: Initiating wallet funding
+2025-08-01 16:13:32 [[31merror[39m]: Error funding wallet
+2025-08-01 16:13:32 [[31merror[39m]: Fund wallet failed
+2025-08-01 16:13:32 [[31merror[39m]: Error: Wallet not found
+    at Function.<anonymous> (C:\Users\user\Documents\lendsqr\src\services\wallet.service.ts:14:26)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\user\Documents\lendsqr\src\services\wallet.service.ts:6:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-01 16:16:21 [[32minfo[39m]: User and wallet created for john234y3@example.com
+2025-08-01 16:21:41 [[32minfo[39m]: Initiating wallet funding
+2025-08-01 16:21:41 [[32minfo[39m]: Wallet funded successfully
