@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createUserSchema } from "../validations/user.validation";
+import { createUserSchema } from "../validations/user.schema";
 import { UserService } from "../services/user.services";
 import responseHandler from "../utils/responseHandler";
 
