@@ -41,3 +41,11 @@
 2025-08-01 22:33:07 [[32minfo[39m]: Wallet funded successfully
 2025-08-01 22:33:18 [[32minfo[39m]: Initiating withdrawal
 2025-08-01 22:33:18 [[32minfo[39m]: Withdrawal of 1000 for user f57f69bd-4672-4e3d-ad2a-e7037fd91302 successful
+2025-08-01 22:50:47 [[33mwarn[39m]: User already exists with email: john234y3@example.com
+2025-08-01 22:50:47 [[31merror[39m]: Error creating user: User already exists
+2025-08-01 22:50:59 [[32minfo[39m]: User and wallet created for john2344y3@example.com
+2025-08-01 22:54:19 [[33mwarn[39m]: Invalid withdraw request: "senderId" is not allowed
+2025-08-01 22:57:08 [[33mwarn[39m]: Invalid withdraw request: "senderId" is not allowed
+2025-08-01 22:58:09 [[33mwarn[39m]: Invalid withdraw request: "senderId" is not allowed
+2025-08-01 22:58:54 [[32minfo[39m]: Wallet transfer completed
+2025-08-01 22:59:02 [[32minfo[39m]: Wallet transfer completed
