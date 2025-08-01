@@ -16,3 +16,4 @@
     at Generator.next (<anonymous>)
     at fulfilled (C:\Users\user\Documents\lendsqr\src\services\wallet.service.ts:6:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-08-01 22:50:47 [[31merror[39m]: Error creating user: User already exists

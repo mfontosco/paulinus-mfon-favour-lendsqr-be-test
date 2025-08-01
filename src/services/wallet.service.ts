@@ -3,7 +3,7 @@
 import knex from '../db/connection';
 import { v4 as uuidv4 } from "uuid";
 import logger from "../utils/logger";
-import { FundWalletDTO } from '../interfaces/wallet.interface';
+import { FundWalletDTO,TransferDTO } from '../interfaces/wallet.interface';
 
 class WalletService {
   static async fundWallet({ userId, amount, narration }: FundWalletDTO) {
@@ -123,6 +123,108 @@ class WalletService {
       throw err;
     }
   }
+
+
+
+  static async transferFunds({ senderId, recipientId, amount, narration }: TransferDTO) {
+    const trx = await knex.transaction();
+
+    try {
+      if (senderId === recipientId) throw new Error("Cannot transfer to self");
+
+      const senderWallet = await trx("wallets").where({ user_id: senderId }).first();
+      const recipientWallet = await trx("wallets").where({ user_id: recipientId }).first();
+
+      if (!senderWallet || !recipientWallet) {
+        throw new Error("Sender or recipient wallet not found");
+      }
+
+      const senderBalance = parseFloat(senderWallet.balance);
+      const recipientBalance = parseFloat(recipientWallet.balance);
+
+      if (senderBalance < amount) throw new Error("Insufficient balance");
+
+      const senderNewBalance = senderBalance - amount;
+      const recipientNewBalance = recipientBalance + amount;
+      const reference = uuidv4();
+      const currency = senderWallet.currency || 'NGN';
+
+      // Update sender wallet
+      await trx("wallets")
+        .where({ user_id: senderId })
+        .update({
+          balance: senderNewBalance,
+          debit: knex.raw('?? + ?', ['debit', amount]),
+          updated_at: knex.fn.now(),
+        });
+
+      // Update recipient wallet
+      await trx("wallets")
+        .where({ user_id: recipientId })
+        .update({
+          balance: recipientNewBalance,
+          credit: knex.raw('?? + ?', ['credit', amount]),
+          updated_at: knex.fn.now(),
+        });
+
+      // Record sender transaction (DEBIT)
+      await trx("wallet_transactions").insert({
+        id: uuidv4(),
+        wallet_id: senderWallet.id,
+        user_id: senderId,
+        trx_ref: reference,
+        transaction_type: 'debit',
+        currency,
+        previous_balance: senderBalance,
+        balance: senderNewBalance,
+        transaction_status: 'success',
+        description: narration || "Wallet transfer - debit",
+        metadata: JSON.stringify({ transfer_type: "wallet", direction: "outbound" }),
+        created_at: new Date(),
+        updated_at: new Date(),
+      });
+
+      // Record recipient transaction (CREDIT)
+      await trx("wallet_transactions").insert({
+        id: uuidv4(),
+        wallet_id: recipientWallet.id,
+        user_id: recipientId,
+        trx_ref: reference,
+        transaction_type: 'credit',
+        currency,
+        previous_balance: recipientBalance,
+        balance: recipientNewBalance,
+        transaction_status: 'success',
+        description: narration || "Wallet transfer - credit",
+        metadata: JSON.stringify({ transfer_type: "wallet", direction: "inbound" }),
+        created_at: new Date(),
+        updated_at: new Date(),
+      });
+
+      await trx.commit();
+
+      logger.info("Wallet transfer completed", {
+        from: senderId,
+        to: recipientId,
+        amount,
+        reference,
+      });
+
+      return {
+        message: "Transfer successful",
+        reference,
+        sender_balance: senderNewBalance,
+        recipient_balance: recipientNewBalance,
+      };
+    } catch (err) {
+      await trx.rollback();
+      logger.error("Transfer failed", { error: err });
+      throw err;
+    }
+  }
+
+
+
 }
 
 export default WalletService;

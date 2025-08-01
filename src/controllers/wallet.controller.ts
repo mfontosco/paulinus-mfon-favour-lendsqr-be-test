@@ -54,6 +54,18 @@ class WalletController {
       });
     }
   }
+  // src/controllers/wallet.controller.ts
+
+static async transferFunds(req: Request, res: Response, next: NextFunction) {
+  try {
+    const result = await WalletService.transferFunds(req.body);
+    return res.status(200).json({ success: true, data: result });
+  } catch (error) {
+    logger.error("Transfer failed", { error });
+    next(error);
+  }
+}
+
 }
 
 export default WalletController;
