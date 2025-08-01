@@ -1,0 +1,11 @@
+2025-07-31 20:59:15 [[31merror[39m]: Error creating user: Error: Unable to verify karma blacklist
+2025-07-31 21:28:04 [[31merror[39m]: Error creating user: Error: Unable to verify karma blacklist
+2025-07-31 21:28:07 [[31merror[39m]: Error creating user: Error: Unable to verify karma blacklist
+2025-07-31 21:35:06 [[31merror[39m]: Error creating user: Error: insert into `users` (`email`, `first_name`, `last_name`) values ('john@example.com', 'John', 'Doe') - Unknown column 'first_name' in 'field list'
+2025-07-31 21:48:51 [[31merror[39m]: Error creating user: Error: insert into `users` (`email`, `first_name`, `last_name`) values ('john@example.com', 'John', 'Doe') - Duplicate entry 'john@example.com' for key 'users.users_email_unique'
+2025-07-31 21:51:11 [[31merror[39m]: Error creating user: Error: User already exists
+2025-07-31 21:53:32 [[31merror[39m]: Error creating user: TypeError: Cannot read properties of undefined (reading 'id')
+2025-07-31 21:56:17 [[31merror[39m]: Error creating user: Error: User already exists
+2025-08-01 14:26:15 [[31merror[39m]: Error creating user: Error: insert into `wallets` (`balance`, `currency`, `id`, `user_id`) values (0, 'NGN', '9225157c-97c9-48b8-938c-780c3a02816b', '2e27a3ca-3d85-4ac1-b86e-ebe8dc1fb6cf') - Data truncated for column 'id' at row 1
+2025-08-01 14:33:42 [[31merror[39m]: Error creating user: Transaction query already complete, run with DEBUG=knex:tx for more info
+2025-08-01 14:35:16 [[31merror[39m]: Error creating user: User already exists
