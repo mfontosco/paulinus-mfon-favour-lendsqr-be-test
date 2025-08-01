@@ -6,3 +6,11 @@ export const fundWalletSchema = Joi.object({
   amount: Joi.number().positive().required(),
   narration: Joi.any().optional(),
 });
+
+
+;
+
+export const withdrawWalletSchema = Joi.object({
+  amount: Joi.number().positive().required(),
+  description: Joi.string().optional(),
+});
