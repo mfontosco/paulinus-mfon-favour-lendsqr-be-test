@@ -17,14 +17,14 @@ export class UserService {
         throw new Error('User already exists');
       }
 
-      // 2. Check blacklist
-    //   const blacklisted = await isUserBlacklisted(karma_id);
-    //   if (blacklisted) {
-    //     logger.warn(`Blacklisted user attempted signup: ${karma_id}`);
-    //     throw new Error('User is blacklisted');
-    //   }
+      // Check blacklist
+      const blacklisted = await isUserBlacklisted(karma_id);
+      if (blacklisted) {
+        logger.warn(`Blacklisted user attempted signup: ${karma_id}`);
+        throw new Error('User is blacklisted');
+      }
 
-      // 3. Create user
+      //  Create user
       const userId = uuidv4();
       const userPayload = { id: userId, ...payload };
 

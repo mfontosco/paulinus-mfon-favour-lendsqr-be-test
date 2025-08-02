@@ -9,7 +9,7 @@ class WalletService {
   static async fundWallet({ userId, amount, narration }: FundWalletDTO) {
     const trx = await knex.transaction();
     try {
-   
+    
       const wallet = await trx("wallets").where({ user_id: userId }).first();
       if (!wallet) throw new Error("Wallet not found");
 
