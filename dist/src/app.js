@@ -15,7 +15,20 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, helmet_1.default)());
 app.use((0, morgan_1.default)('dev'));
+console.log('✅ Welcome route is loaded');
+app.get('/', (_req, res) => {
+    res.status(200).json({
+        message: 'Welcome to the Lendsqr Wallet API',
+        status: 'success',
+    });
+});
 app.use("/api/v1/users", user_route_1.default);
 app.use('/api/v1/wallets', wallet_route_1.default);
+app.use(/(.*)/, (_req, res) => {
+    res.status(404).json({
+        message: 'Route not found',
+        status: 'error',
+    });
+});
 app.use(errorHnadler_1.errorHandler);
 exports.default = app;

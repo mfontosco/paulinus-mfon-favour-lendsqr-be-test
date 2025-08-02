@@ -18,17 +18,14 @@ class UserService {
                 logger_1.default.warn(`User already exists with email: ${email}`);
                 throw new Error('User already exists');
             }
-            // Check blacklist
             const blacklisted = await (0, karma_1.isUserBlacklisted)(karma_id);
             if (blacklisted) {
                 logger_1.default.warn(`Blacklisted user attempted signup: ${karma_id}`);
                 throw new Error('User is blacklisted');
             }
-            //  Create user
             const userId = (0, uuid_1.v4)();
             const userPayload = Object.assign({ id: userId }, payload);
             await trx('users').insert(userPayload);
-            // Create wallet with default balance
             const walletId = (0, uuid_1.v4)();
             const walletPayload = {
                 id: walletId,
