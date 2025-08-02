@@ -54,7 +54,6 @@ class WalletController {
       });
     }
   }
-  // src/controllers/wallet.controller.ts
 
 static async transferFunds(req: Request, res: Response, next: NextFunction) {
   try {

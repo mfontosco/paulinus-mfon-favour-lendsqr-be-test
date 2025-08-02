@@ -49,3 +49,32 @@
 2025-08-01 22:58:09 [[33mwarn[39m]: Invalid withdraw request: "senderId" is not allowed
 2025-08-01 22:58:54 [[32minfo[39m]: Wallet transfer completed
 2025-08-01 22:59:02 [[32minfo[39m]: Wallet transfer completed
+2025-08-01 23:35:57 [[33mwarn[39m]: User already exists with email: john2344y3@example.com
+2025-08-01 23:35:57 [[31merror[39m]: Error creating user: User already exists
+2025-08-01 23:36:06 [[31merror[39m]: Error creating user: Unable to verify karma blacklist
+2025-08-01 23:37:55 [[31merror[39m]: Error creating user: Unable to verify karma blacklist
+2025-08-01 23:39:26 [[32minfo[39m]: User and wallet created for john2344y443@example.com
+2025-08-01 23:39:48 [[33mwarn[39m]: User already exists with email: john2344y443@example.com
+2025-08-01 23:39:48 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:47:53 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:47:53 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:47:53 [[33mwarn[39m]: User already exists with email: test@example.com
+2025-08-02 00:47:53 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:47:53 [[32minfo[39m]: User and wallet created for blacklisted@example.com
+2025-08-02 00:50:42 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:50:42 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:50:42 [[33mwarn[39m]: User already exists with email: test@example.com
+2025-08-02 00:50:42 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:50:42 [[32minfo[39m]: User and wallet created for blacklisted@example.com
+2025-08-02 00:54:28 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:54:28 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:54:28 [[33mwarn[39m]: User already exists with email: test@example.com
+2025-08-02 00:54:28 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:54:28 [[33mwarn[39m]: Blacklisted user attempted signup: blacklisted-user
+2025-08-02 00:54:28 [[31merror[39m]: Error creating user: User is blacklisted
+2025-08-02 00:54:54 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:54:54 [[32minfo[39m]: User and wallet created for test@example.com
+2025-08-02 00:54:54 [[33mwarn[39m]: User already exists with email: test@example.com
+2025-08-02 00:54:54 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:54:54 [[33mwarn[39m]: Blacklisted user attempted signup: blacklisted-user
+2025-08-02 00:54:54 [[31merror[39m]: Error creating user: User is blacklisted

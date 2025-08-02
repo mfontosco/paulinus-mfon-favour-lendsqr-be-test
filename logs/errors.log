@@ -17,3 +17,13 @@
     at fulfilled (C:\Users\user\Documents\lendsqr\src\services\wallet.service.ts:6:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
 2025-08-01 22:50:47 [[31merror[39m]: Error creating user: User already exists
+2025-08-01 23:35:57 [[31merror[39m]: Error creating user: User already exists
+2025-08-01 23:36:06 [[31merror[39m]: Error creating user: Unable to verify karma blacklist
+2025-08-01 23:37:55 [[31merror[39m]: Error creating user: Unable to verify karma blacklist
+2025-08-01 23:39:48 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:47:53 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:50:42 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:54:28 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:54:28 [[31merror[39m]: Error creating user: User is blacklisted
+2025-08-02 00:54:54 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 00:54:54 [[31merror[39m]: Error creating user: User is blacklisted
