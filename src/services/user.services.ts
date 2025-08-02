@@ -17,20 +17,20 @@ export class UserService {
         throw new Error('User already exists');
       }
 
-      // Check blacklist
+     
       const blacklisted = await isUserBlacklisted(karma_id);
       if (blacklisted) {
         logger.warn(`Blacklisted user attempted signup: ${karma_id}`);
         throw new Error('User is blacklisted');
       }
 
-      //  Create user
+  
       const userId = uuidv4();
       const userPayload = { id: userId, ...payload };
 
       await trx('users').insert(userPayload);
 
-      // Create wallet with default balance
+     
       const walletId = uuidv4();
       const walletPayload = {
         id: walletId,

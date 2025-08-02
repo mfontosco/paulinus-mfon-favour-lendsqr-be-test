@@ -112,3 +112,8 @@
 2025-08-02 10:14:02 [[32minfo[39m]: Initiating withdrawal
 2025-08-02 10:14:02 [[32minfo[39m]: Initiating withdrawal
 2025-08-02 10:14:02 [[33mwarn[39m]: Insufficient balance for user user789
+2025-08-02 20:13:49 [[33mwarn[39m]: User already exists with email: john2344y443@example.com
+2025-08-02 20:13:49 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 20:14:24 [[33mwarn[39m]: User already exists with email: john2344y443@example.com
+2025-08-02 20:14:24 [[31merror[39m]: Error creating user: User already exists
+2025-08-02 20:51:27 [[32minfo[39m]: User and wallet created for john23449y443@example.com
