@@ -1,13 +1,13 @@
 import { Knex } from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.createTable('wallets', (table) => {
-     table.string("id", 36).primary().defaultTo(knex.raw("(UUID())"));
+  await knex.schema.createTable('wallets', (table) => {
+    table.string("id", 36).primary(); 
 
     table.uuid('user_id').notNullable()
-      .references('id')
-      .inTable('users')
-      .onDelete('CASCADE');
+      .references('id').inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
 
     table.decimal('balance', 18, 2).defaultTo(0.00);
     table.decimal('credit', 18, 2).defaultTo(0.00);
@@ -16,11 +16,11 @@ export async function up(knex: Knex): Promise<void> {
     table.json('metadata');
     table.string('currency', 255).notNullable();
 
-    table.datetime('created_at').defaultTo(knex.fn.now());
-    table.datetime('updated_at').defaultTo(knex.fn.now());
+    table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
+    table.timestamp('updated_at').defaultTo(knex.fn.now()).notNullable();
   });
 }
 
 export async function down(knex: Knex): Promise<void> {
-  return knex.schema.dropTable('wallets');
+  await knex.schema.dropTableIfExists('wallets');
 }

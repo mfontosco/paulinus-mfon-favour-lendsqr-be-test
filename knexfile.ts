@@ -1,31 +1,34 @@
-import { Knex } from 'knex';
+
+import type { Knex } from 'knex';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const config: { [key: string]: Knex.Config } = {
+const config: Record<string, Knex.Config> = {
   development: {
     client: 'mysql2',
     connection: {
-      host: process.env.DB_HOST!,
-      user: process.env.DB_USER!,
-      password: process.env.DB_PASSWORD!,
-      database: process.env.DB_NAME!,
+      host: process.env.DB_HOST || 'localhost',
+      user: process.env.DB_USER || 'root',
+      password: process.env.DB_PASSWORD || '',
+      database: process.env.DB_NAME || 'lendsqr_wallet',
     },
     migrations: {
-      directory: './migrations',
+      directory: './migrations', 
+      extension: 'ts',
     },
   },
 
- test: {
-  client: 'sqlite3',
-  connection: {
-    filename: ':memory:',
+  test: {
+    client: 'sqlite3',
+    connection: {
+      filename: ':memory:',
+    },
+    useNullAsDefault: true,
+    migrations: {
+     directory: './migrations',
+      extension: 'ts',
+    },
   },
-  useNullAsDefault: true,
-  migrations: {
-    directory: './migrations',
-  },
-}
 };
 
 export default config;
