@@ -7,8 +7,9 @@ export async function up(knex: Knex): Promise<void> {
     table.string('last_name', 255).notNullable();
     table.string('email', 255).notNullable();
     table.string('karma_id', 255);
-    table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
-    table.timestamp('updated_at').defaultTo(knex.fn.now()).notNullable();
+  table.datetime('created_at').defaultTo(knex.fn.now());
+table.datetime('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
   });
 }
 
