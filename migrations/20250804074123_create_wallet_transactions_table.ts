@@ -33,9 +33,8 @@ export const up = async (knex: Knex): Promise<void> => {
     table.string('description', 255);
     table.json('metadata');
 table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
-table.timestamp('updated_at')
-         .defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
-         .notNullable();
+table.timestamp('updated_at').notNullable();
+
 
   });
 };
