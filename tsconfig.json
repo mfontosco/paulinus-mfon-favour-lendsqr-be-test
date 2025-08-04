@@ -8,5 +8,5 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "knexfile.ts"]
+  "include": ["src", "knexfile.ts", "migrations"]
 }

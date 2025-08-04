@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.down = exports.up = void 0;
 const up = async (knex) => {
     await knex.schema.createTable('wallet_transactions', (table) => {
-        table.uuid('id').primary();
+        table.string("id", 36).primary();
         table.uuid('wallet_id').notNullable()
             .references('id').inTable('wallets')
             .onDelete('CASCADE')
@@ -26,8 +26,8 @@ const up = async (knex) => {
         }).notNullable();
         table.string('description', 255);
         table.json('metadata');
-        table.datetime('created_at').defaultTo(knex.fn.now());
-        table.datetime('updated_at').defaultTo(knex.fn.now());
+        table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
+        table.timestamp('updated_at').defaultTo(knex.fn.now()).notNullable();
     });
 };
 exports.up = up;

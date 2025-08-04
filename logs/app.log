@@ -117,3 +117,6 @@
 2025-08-02 20:14:24 [[33mwarn[39m]: User already exists with email: john2344y443@example.com
 2025-08-02 20:14:24 [[31merror[39m]: Error creating user: User already exists
 2025-08-02 20:51:27 [[32minfo[39m]: User and wallet created for john23449y443@example.com
+2025-08-04 09:31:36 [[32minfo[39m]: User and wallet created for john234495y44543@example.com
+2025-08-04 09:33:53 [[33mwarn[39m]: User already exists with email: john234495y44543@example.com
+2025-08-04 09:33:53 [[31merror[39m]: Error creating user: User already exists
