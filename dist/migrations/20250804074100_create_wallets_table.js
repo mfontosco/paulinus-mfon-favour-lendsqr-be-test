@@ -12,7 +12,7 @@ async function up(knex) {
         table.decimal('balance', 18, 2).defaultTo(0.00);
         table.decimal('credit', 18, 2).defaultTo(0.00);
         table.decimal('debit', 18, 2).defaultTo(0.00);
-        table.json('metadata');
+        table.text("metadata");
         table.string('currency', 255).notNullable();
         table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
         table.timestamp('updated_at').notNullable();
