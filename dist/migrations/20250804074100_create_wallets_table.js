@@ -14,8 +14,8 @@ async function up(knex) {
         table.decimal('debit', 18, 2).defaultTo(0.00);
         table.json('metadata');
         table.string('currency', 255).notNullable();
-        table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
-        table.timestamp('updated_at').defaultTo(knex.fn.now()).notNullable();
+        table.datetime('created_at').defaultTo(knex.fn.now());
+        table.datetime('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
     });
 }
 async function down(knex) {
