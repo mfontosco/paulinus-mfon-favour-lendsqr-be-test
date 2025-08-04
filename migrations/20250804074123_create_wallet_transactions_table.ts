@@ -31,7 +31,7 @@ export const up = async (knex: Knex): Promise<void> => {
     }).notNullable();
 
     table.string('description', 255);
-    table.json('metadata');
+   table.text("metadata");
 table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
 table.timestamp('updated_at').notNullable();
 

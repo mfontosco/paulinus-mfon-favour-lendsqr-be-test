@@ -25,7 +25,7 @@ const up = async (knex) => {
             enumName: 'transaction_status_enum',
         }).notNullable();
         table.string('description', 255);
-        table.json('metadata');
+        table.text("metadata");
         table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
         table.timestamp('updated_at').notNullable();
     });
