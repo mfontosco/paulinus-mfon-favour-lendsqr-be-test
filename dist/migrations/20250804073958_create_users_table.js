@@ -10,9 +10,7 @@ async function up(knex) {
         table.string('email', 255).notNullable();
         table.string('karma_id', 255);
         table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
-        table.timestamp('updated_at')
-            .defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
-            .notNullable();
+        table.timestamp('updated_at').notNullable();
     });
 }
 async function down(knex) {

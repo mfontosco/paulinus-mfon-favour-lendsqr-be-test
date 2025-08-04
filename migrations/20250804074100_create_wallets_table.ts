@@ -17,9 +17,8 @@ export async function up(knex: Knex): Promise<void> {
     table.string('currency', 255).notNullable();
 
   table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
-  table.timestamp('updated_at')
-         .defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
-         .notNullable();
+table.timestamp('updated_at').notNullable();
+
 
   });
 }
